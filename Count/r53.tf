@@ -1,6 +1,7 @@
 resource "aws_route53_record" "www" {
     count = length(var.instances)
   zone_id = var.zone_id
+  #interpolation
   name    = "${var.instances[count.index]}.${var.domainname}"
   type    = var.type
   ttl     = var.ttl
